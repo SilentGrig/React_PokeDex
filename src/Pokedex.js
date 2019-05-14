@@ -8,7 +8,8 @@ const pokemonTeamTwo = [];
 
 for (let i = 0; i < 4; i++) {
   const poke = pokemon[i];
-  const pokemon_url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${poke.id}.png`
+  const pokeId = poke.id.toString().padStart(3, "0")
+  const pokemon_url = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokeId}.png`
 
   pokemonTeamOne.push(<Pokecard
     name={poke.name}
@@ -20,7 +21,8 @@ for (let i = 0; i < 4; i++) {
 
 for (let i = 4; i < 8; i++) {
   const poke = pokemon[i];
-  const pokemon_url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${poke.id}.png`
+  const pokeId = poke.id.toString().padStart(3, "0")
+  const pokemon_url = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokeId}.png`
 
   pokemonTeamTwo.push(<Pokecard
     name={poke.name}

@@ -12,3 +12,8 @@
 .Pokecard-name {
   color: blue;
 }
+
+.Pokecard-img {
+  width: 100px;
+  height: 100px;
+}
