@@ -2,7 +2,7 @@
   "name": "pokedex-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://SilentGrig.github.com/React_PokeDex",
+  "homepage": "https://silentgrig.github.io/React_PokeDex/",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
