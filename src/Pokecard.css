@@ -7,15 +7,35 @@
   display: inline-block;
   margin: 20px 50px;
   box-shadow: 5px 5px rgb(165, 164, 164);
+  animation: come-in 2s ease;
+}
+
+.Pokecard:nth-child(odd) {
+  animation-duration: 1.6s;
+}
+
+.Pokecard-img-div {
+  text-align: center;
+  margin: 2px auto;
+  width: 246px;
+  height: 240px;
+  background: #f0efef;
 }
 
 .Pokecard-img {
-  margin-top: 5px;
-  width: 240px;
-  height: 240px;
-  background: #dddcdc;
+  margin: 0 auto;
+  transition-duration: 2s, 2s;
+}
+
+.Pokecard-img:hover {
+  transition-duration: 2s, 2s;
+  transform: scale(1.5,1.5);
 }
 
 .Pokecard-p {
   margin: 0;
+}
+
+@keyframes come-in {
+  from { transform: translateY(-150%) } to { transform: translateY(0); }
 }

@@ -5,10 +5,10 @@
 
 .Pokedex-Winning {
   margin-top: 0;
-  color: green;
+  color: rgb(22, 172, 22);
 }
 
 .Pokedex-Losing {
   margin-top: 0;
-  color: red;
+  color: rgb(214, 33, 169);
 }
