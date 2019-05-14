@@ -1,47 +1,30 @@
 import React, { Component } from 'react';
 import './Pokedex.css';
 import Pokecard from './Pokecard';
-import pokemon from './pokemon';
-
-const pokemonTeamOne = [];
-const pokemonTeamTwo = [];
-
-for (let i = 0; i < 4; i++) {
-  const poke = pokemon[i];
-  const pokeId = poke.id.toString().padStart(3, "0")
-  const pokemon_url = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokeId}.png`
-
-  pokemonTeamOne.push(<Pokecard
-    name={poke.name}
-    img={pokemon_url}
-    type={poke.type}
-    exp={poke.base_experience}
-  />);
-};
-
-for (let i = 4; i < 8; i++) {
-  const poke = pokemon[i];
-  const pokeId = poke.id.toString().padStart(3, "0")
-  const pokemon_url = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokeId}.png`
-
-  pokemonTeamTwo.push(<Pokecard
-    name={poke.name}
-    img={pokemon_url}
-    type={poke.type}
-    exp={poke.base_experience}
-  />);
-};
 
 class Pokedex extends Component {
   render() {
+    const { pokemon, totalExp, isWinner } = this.props;
+    const pokemonTeam = [];
+    const winnerClassName = `Pokedex-${ isWinner ? 'Winning' : 'Losing' }`;
+
+    for (let poke of pokemon) {
+      const pokeId = poke.id.toString().padStart(3, "0")
+      const pokemon_url = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokeId}.png`
+
+      pokemonTeam.push(<Pokecard
+        name={poke.name}
+        img={pokemon_url}
+        type={poke.type}
+        exp={poke.base_experience}
+      />);
+    };
     return (
       <div className="Pokedex">
-        <h1 className="Pokedex-title">Pokedex</h1>
-        <div className="Pokedex-row">
-          {pokemonTeamOne}
-        </div>
-        <div className="Pokedex-row">
-          {pokemonTeamTwo}
+        <h2 className={winnerClassName}>{ isWinner ? 'Winning' : 'Losing' } Hand</h2>
+        <p>Total Experience: { totalExp }</p>
+        <div>
+          {pokemonTeam}
         </div>
       </div>
     )

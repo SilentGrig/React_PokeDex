@@ -1,8 +1,14 @@
 .Pokedex {
   text-align: center;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
-.Pokedex-title {
-  color: #b6b2b2;
+.Pokedex-Winning {
+  margin-top: 0;
+  color: green;
+}
+
+.Pokedex-Losing {
+  margin-top: 0;
+  color: red;
 }
