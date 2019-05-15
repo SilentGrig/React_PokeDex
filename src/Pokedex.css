@@ -12,3 +12,9 @@
   margin-top: 0;
   color: rgb(214, 33, 169);
 }
+
+.Pokedex-cards {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}

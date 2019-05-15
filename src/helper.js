@@ -16,9 +16,7 @@ function shuffle(arr) {
 */
 
 function sumExp(arr) {
-  return arr.reduce((acc, nxt) => {
-    return acc + nxt.base_experience;
-  }, 0);
+  return arr.reduce((exp, pokemon) => exp + pokemon.base_experience, 0);
 }
 
 export { shuffle, sumExp }

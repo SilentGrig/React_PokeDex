@@ -11,7 +11,6 @@ const teamTwo = pokemon.slice(4,);
 
 const teamOneScore = sumExp(teamOne);
 const teamTwoScore = sumExp(teamTwo);
-const [teamOneWinner, teamTwoWinner] = teamOneScore > teamTwoScore? [true, false] : [false, true];
 
 class Pokegame extends Component {
   render() {
@@ -21,14 +20,14 @@ class Pokegame extends Component {
           <Pokedex 
             pokemon={teamOne}
             totalExp = {teamOneScore}
-            isWinner={teamOneWinner}
+            isWinner={teamOneScore > teamTwoScore}
           />
         </div>
         <div className="Pokegame-row">
           <Pokedex 
             pokemon={teamTwo}
             totalExp = {teamTwoScore}
-            isWinner={teamTwoWinner}
+            isWinner={teamTwoScore > teamOneScore}
           />
         </div>
       </div>
