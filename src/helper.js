@@ -16,7 +16,25 @@ function shuffle(arr) {
 */
 
 function sumExp(arr) {
-  return arr.reduce((exp, pokemon) => exp + pokemon.base_experience, 0);
+  return arr.reduce((exp, pokemon) => {
+    return exp + ( pokemon.isSelected ? pokemon.base_experience : 0 );
+  }, 0);
 }
 
-export { shuffle, sumExp }
+/*
+  Pads the start of a string or number with character specified
+  to a certain specified length
+*/
+
+function padStart(originalString, padChar, newLength) {
+
+  let newString = originalString.toString();
+  
+  while( newString.length < newLength ) {
+    newString = padChar + newString;
+  }
+
+  return newString;
+}
+
+export { shuffle, sumExp, padStart }

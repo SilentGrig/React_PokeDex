@@ -8,6 +8,7 @@
   margin: 20px 50px;
   box-shadow: 7px 10px 12px -5px rgba(0,0,0,0.56);
   animation: come-in 2s ease;
+  box-sizing: border-box;
 }
 
 .Pokecard-img {
@@ -33,6 +34,10 @@
 
 .Pokecard-data {
   font-size: .8rem;
+}
+
+.Pokecard-selected {
+  box-shadow: 0px 0px 5px 5px rgba(209, 11, 11, 1.0);
 }
 
 @keyframes come-in {

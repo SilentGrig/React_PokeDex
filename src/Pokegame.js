@@ -9,29 +9,69 @@ shuffle(pokemon);
 const teamOne = pokemon.slice(0,4);
 const teamTwo = pokemon.slice(4,);
 
-const teamOneScore = sumExp(teamOne);
-const teamTwoScore = sumExp(teamTwo);
+function buildTeam(team) {
+  return team.map((pokemon) => {
+    return {
+      ...pokemon,
+      "isSelected": false
+    }
+  })
+}
 
 class Pokegame extends Component {
+  constructor() {
+    super();
+    this.state = {
+      "teamOne": buildTeam(teamOne),
+      "teamTwo": buildTeam(teamTwo),
+      "teamOneScore": 0,
+      "teamTwoScore": 0
+    }
+    this.updateTeam = this.updateTeam.bind(this);
+  }
+
+  updateTeam(teamId, pokemonId) {
+    let team = this.state[teamId];
+    const teamScore = teamId + "Score";
+    const newTeam = team.map((pokemon) => {
+      return {
+        ...pokemon,
+        isSelected: ( pokemon.id === pokemonId ? !pokemon.isSelected : pokemon.isSelected )
+      }
+    });
+
+    const newScore = sumExp(newTeam);
+    console.log(newScore);
+
+    this.setState({ [teamId]: newTeam, [teamScore]: newScore });
+  }
+
   render() {
+    let { teamOne, teamTwo, teamOneScore, teamTwoScore } = this.state;
     return (
       <div className="Pokegame">
         <div className="Pokegame-row">
-          <Pokedex 
+          <Pokedex
+            key="teamOne"
+            team="teamOne"
             pokemon={teamOne}
-            totalExp = {teamOneScore}
-            isWinner={teamOneScore > teamTwoScore}
+            totalExp={ teamOneScore }
+            isWinner={ teamOneScore > teamTwoScore}
+            updateCard={this.updateTeam}
           />
         </div>
         <div className="Pokegame-row">
-          <Pokedex 
+          <Pokedex
+            key="teamTwo"
+            team="teamTwo"
             pokemon={teamTwo}
-            totalExp = {teamTwoScore}
+            totalExp={teamTwoScore}
             isWinner={teamTwoScore > teamOneScore}
+            updateCard={this.updateTeam}
           />
         </div>
       </div>
-    )
+    );
   }
 }
 
