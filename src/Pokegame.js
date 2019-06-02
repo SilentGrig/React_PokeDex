@@ -41,7 +41,6 @@ class Pokegame extends Component {
     });
 
     const newScore = sumExp(newTeam);
-    console.log(newScore);
 
     this.setState({ [teamId]: newTeam, [teamScore]: newScore });
   }
